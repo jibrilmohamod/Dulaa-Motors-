@@ -110,11 +110,7 @@
         class="image-thumb"
         v-for="(image,index) in car.attributes.images.data"
        >
-        <img
-         :src="image.attributes.formats.small.url"
-         alt=""
-         style="height: 240px; width: 320px"
-        />
+        <img :src="image.attributes.formats.small.url" alt="" class="imgcard" />
        </div>
        <div class="down-content">
         <span> <sup>$</sup>{{car.attributes.price}} </span>
@@ -126,10 +122,6 @@
          <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
          <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
         </p>
-
-        <ul class="social-icons">
-         <li><a href="car-details.html">+ View Car</a></li>
-        </ul>
        </div>
       </div>
      </div>
