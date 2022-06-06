@@ -104,7 +104,7 @@
      </div>
     </div>
     <div class="row">
-     <div class="col-lg-4" v-for="car in featuredCars">
+     <div class="col-lg-4" v-for="car in cars">
       <div class="trainer-item">
        <div
         class="image-thumb"
@@ -119,8 +119,8 @@
 
         <p>
          <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-         <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
-         <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
+         <i class="fa fa-cube"></i>{{car.attributes.state}} &nbsp;&nbsp;&nbsp;
+         <i class="fa fa-cog"></i> {{car.attributes.gear}} &nbsp;&nbsp;&nbsp;
         </p>
        </div>
       </div>

@@ -12,6 +12,7 @@
    href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
    rel="stylesheet"
   />
+  
 
   <title>Dulaa Motors</title>
 
@@ -147,7 +148,19 @@
      <div class="col-lg-4" v-for="(car) in cars">
       <div class="trainer-item">
        <div class="image-thumb" v-for="(image,index) in car.attributes.images.data">
-        <img :src="image.attributes.formats.small.url" alt=""  class="imgcard"/>
+         <div
+          class="image-thumb"
+          v-for="(image, index) in car.attributes.images.data"
+          :key="index"
+          :id="++rous " 
+        >
+          <img
+            :src="image.attributes.formats.small.url"
+            alt=""
+            class="imgcard"
+          />
+         
+        </div>
        </div>
        <div class="down-content">
         <span>
@@ -159,7 +172,7 @@
         <p>
          <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
          <i class="fa fa-cube"></i>{{car.attributes.state}} &nbsp;&nbsp;&nbsp;
-         <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
+         <i class="fa fa-cog"></i> {{car.attributes.gear}} &nbsp;&nbsp;&nbsp;
         </p>
 
        
@@ -196,7 +209,8 @@
       images: [],
       manufa: '',
       state:'',
-      languages:'',
+      rous: 40,
+
      }
     },
     mounted() {
@@ -205,13 +219,14 @@
     },
     methods: {
       getData(){
-      fetch("https://dulaacars.herokuapp.com/api/cars?fields=make,manufacturer,price,state&populate=images")
+      fetch("https://dulaacars.herokuapp.com/api/cars?fields=make,manufacturer,price,state,gear&populate=images")
       .then((response) => response.json())
       .then((data) => {
        this.cars = data.data
+       
         this.cars.forEach(element => {
           this.images.push(element.attributes.images.data)
-          console.log(this.images);
+          
         });       
       })
       }
