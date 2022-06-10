@@ -1341,3 +1341,51 @@ a:focus,
 a:hover {
  color: #f9735b;
 }
+
+.Carousel {
+ height: 40vh;
+ width: 100vw;
+ background-color: #ed563b;
+}
+.juu {
+ background-color: #7a7a7a;
+ height: 8vh;
+}
+.carousel-item {
+}
+.carousel-item p {
+ color: rgb(17, 2, 2);
+ font-size: 50px;
+ font-weight: bold;
+ position: absolute;
+ height: 30vh;
+ left: 20vw;
+ top: 50%;
+}
+.carousel-item img {
+ height: 29vh;
+ display: inline;
+ position: relative;
+ right: -60vw;
+ border: #3b566e;
+}
+#carouselExampleControls {
+ width: 100vw;
+}
+.carousel-inner {
+ width: 100vw;
+}
+.carousel-inner p span {
+ position: absolute;
+ top: 10%;
+}
+@media screen and (max-width: 1400px) {
+ .carousel-item p {
+  font-size: 30px;
+  left: 5vw;
+  top: 50%;
+ }
+ .carousel-item img {
+  right: -45vw;
+ }
+}

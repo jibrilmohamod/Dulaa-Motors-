@@ -1,219 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-  <meta charset="utf-8" />
-  <meta
-   name="viewport"
-   content="width=device-width, initial-scale=1, shrink-to-fit=no"
-  />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
-  <link
-   href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
-   rel="stylesheet"
-  />
 
-  <title>Dulaa Motors</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description"
+          content="" />
+    <meta name="author"
+          content="" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
+          rel="stylesheet" />
 
-  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
+    <title>Dulaa Motors</title>
 
-  <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css" />
+    <link rel="stylesheet"
+          type="text/css"
+          href="assets/css/bootstrap.min.css" />
 
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <script src="https://unpkg.com/vue@3"></script>
- </head>
+    <link rel="stylesheet"
+          type="text/css"
+          href="assets/css/font-awesome.css" />
 
- <body id="app">
-  <!-- ***** Preloader Start ***** -->
-  <div id="js-preloader" class="js-preloader">
-   <div class="preloader-inner">
-    <span class="dot"></span>
-    <div class="dots">
-     <span></span>
-     <span></span>
-     <span></span>
-    </div>
-   </div>
-  </div>
-  <!-- ***** Preloader End ***** -->
+    <link rel="stylesheet"
+          href="assets/css/style.css" />
+    <script src="https://unpkg.com/vue@3"></script>
+  </head>
 
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
-   <div class="container">
-    <div class="row">
-     <div class="col-12">
-      <nav class="main-nav">
-       <!-- ***** Logo Start ***** -->
-       <a href="index.html" class="logo">Dulaa<em> Motors</em></a>
-       <!-- ***** Logo End ***** -->
-       <!-- ***** Menu Start ***** -->
-       <ul class="nav">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="cars.html">Cars</a></li>
-        <li class="dropdown">
-         <a
-          href="about.html"
-          role="button"
-          aria-haspopup="true"
-          aria-expanded="false"
-          >About</a
-         >
-        </li>
-        <li><a href="contact.html">Contact</a></li>
-       </ul>
-       <a class="menu-trigger">
-        <span>Menu</span>
-       </a>
-       <!-- ***** Menu End ***** -->
-      </nav>
-     </div>
-    </div>
-   </div>
-  </header>
-  <!-- ***** Header Area End ***** -->
-
-  <!-- ***** Main Banner Area Start ***** -->
-  <div class="main-banner" id="top">
-   <video autoplay muted loop id="bg-video">
-    <source src="assets/images/video" type="video/mp4" />
-   </video>
-
-   <div class="video-overlay header-text">
-    <div class="caption">
-     <!-- <h6>Lorem ipsum dolor sit amet</h6> -->
-     <h2>Find Your <em>Dream Car</em> Today</h2>
-     <div class="main-button text-center">
-      <a href="cars.html">View Cars</a>
-     </div>
-    </div>
-   </div>
-  </div>
-  <!-- ***** Main Banner Area End ***** -->
-
-  <!-- ***** Cars Starts ***** -->
-  <section class="section" id="trainers">
-   <div class="container">
-    <div class="row">
-     <div class="col-lg-6 offset-lg-3">
-      <div class="section-heading">
-       <h2>Featured <em>Cars</em></h2>
-       <div>
-        <img src="assets/images/line-dec.png" alt="" />
-       </div>
+  <body id="app">
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader"
+         class="js-preloader">
+      <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
-     </div>
     </div>
-    <div class="row">
-     <div class="col-lg-4" v-for="car in cars">
-      <div class="trainer-item">
-       <div
-        class="image-thumb"
-        v-for="(image,index) in car.attributes.images.data"
-       >
-        <img :src="image.attributes.formats.small.url" alt="" class="imgcard" />
-       </div>
-       <div class="down-content">
-        <span> <sup>$</sup>{{car.attributes.price}} </span>
+    <!-- ***** Preloader End ***** -->
 
-        <h4>{{ `${car.attributes.manufacturer} ${car.attributes.make}` }}</h4>
-
-        <p>
-         <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-         <i class="fa fa-cube"></i>{{car.attributes.state}} &nbsp;&nbsp;&nbsp;
-         <i class="fa fa-cog"></i> {{car.attributes.gear}} &nbsp;&nbsp;&nbsp;
-        </p>
-       </div>
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav class="main-nav">
+              <!-- ***** Logo Start ***** -->
+              <a href="index.html"
+                 class="logo">Dulaa<em> Motors</em></a>
+              <!-- ***** Logo End ***** -->
+              <!-- ***** Menu Start ***** -->
+              <ul class="nav">
+                <li><a href="index.html"
+                     class="active">Home</a></li>
+                <li><a href="cars.html">Cars</a></li>
+                <li class="dropdown">
+                  <a href="about.html"
+                     role="button"
+                     aria-haspopup="true"
+                     aria-expanded="false">About</a>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+              <a class="menu-trigger">
+                <span>Menu</span>
+              </a>
+              <!-- ***** Menu End ***** -->
+            </nav>
+          </div>
+        </div>
       </div>
-     </div>
-    </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
 
-    <br />
+    <!-- ***** Main Banner Area Start ***** -->
+    <div class="main-banner"
+         id="top">
+      <video autoplay
+             muted
+             loop
+             id="bg-video">
+        <source src="assets/images/video.mp4"
+                type="video/mp4" />
+      </video>
 
-    <div class="main-button text-center">
-     <a href="cars.html">View Cars</a>
-    </div>
-   </div>
-  </section>
-  <!-- ***** Cars Ends ***** -->
+      <div class="video-overlay header-text">
+        <div class="caption">
 
-  <!-- ***** Call to Action Start ***** -->
-  <section
-   class="section section-bg"
-   id="call-to-action"
-   style="background-image: url(assets/images/banner-image-1-1920x500.jpg)"
-  >
-   <div class="container">
-    <div class="row">
-     <div class="col-lg-10 offset-lg-1">
-      <div class="cta-content">
-       <h2>Send us a <em>message</em></h2>
-
-       <div class="main-button">
-        <a href="contact.html">Contact us</a>
-       </div>
+          <h2>FIND YOUR<em>DREAM CAR</em> TODAy!</h2>
+          <div class="main-button">
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </div>
       </div>
-     </div>
     </div>
-   </div>
-  </section>
+    <!-- ***** Main Banner Area End ***** -->
 
-  <!-- ***** Footer Start ***** -->
-  <footer>
-   <div class="container">
-    <div class="row">
-     <div class="col-lg-12">
-      <p>Copyright © 2022 Dulaa Motors</p>
-     </div>
-    </div>
-   </div>
-  </footer>
-  <script src="https://unpkg.com/vue@3"></script>
+    <!-- ***** Cars Starts ***** -->
+    <section class="section"
+             id="trainers">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 offset-lg-3">
+            <div class="section-heading">
+              <h2>Featured <em>Cars</em></h2>
+              <div>
+                <img src="assets/images/line-dec.png"
+                     alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4"
+               v-for="car in cars">
+            <div class="trainer-item">
+              <div class="image-thumb"
+                   v-for="(image,index) in car.attributes.images.data">
+                <img :src="image.attributes.formats.small.url"
+                     alt=""
+                     class="imgcard" />
+              </div>
+              <div class="down-content">
+                <span> <sup>$</sup>{{car.attributes.price}} </span>
 
-  <script>
-   const { createApp } = Vue
+                <h4>{{ `${car.attributes.manufacturer} ${car.attributes.make}` }}</h4>
 
-   createApp({
-    data() {
-     return {
-      message: "Hello Vue!",
-      cars: [],
-      attributes: [],
-      images: [],
-     }
-    },
-    mounted() {
-     fetch("https://dulaacars.herokuapp.com/api/cars?populate=images")
-      .then((response) => response.json())
-      .then((data) => {
-       this.cars = data.data
-       this.images = this.cars.images
-       console.log(this.images)
-      })
-    },
-    computed: {
-     featuredCars() {
-      return this.cars.slice(0, 6)
-     },
-    },
-   }).mount("#app")
-  </script>
+                <p>
+                  <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
+                  <i class="fa fa-cube"></i>{{car.attributes.state}} &nbsp;&nbsp;&nbsp;
+                  <i class="fa fa-cog"></i> {{car.attributes.gear}} &nbsp;&nbsp;&nbsp;
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-  <!-- jQuery -->
-  <script src="assets/js/jquery-2.1.0.min.js"></script>
+        <br />
 
-  <!-- Bootstrap -->
-  <script src="assets/js/popper.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
+        <div class="main-button text-center">
+          <a href="cars.html">View Cars</a>
+        </div>
+      </div>
+    </section>
+    <!-- ***** Cars Ends ***** -->
 
-  <!-- Plugins -->
-  <script src="assets/js/scrollreveal.min.js"></script>
-  <script src="assets/js/waypoints.min.js"></script>
-  <script src="assets/js/jquery.counterup.min.js"></script>
-  <script src="assets/js/imgfix.min.js"></script>
-  <script src="assets/js/mixitup.js"></script>
-  <script src="assets/js/accordions.js"></script>
+    <!-- ***** Call to Action Start ***** -->
+    <section class="section section-bg"
+             id="call-to-action"
+             style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 offset-lg-1">
+            <div class="cta-content">
+              <h2>Send us a <em>message</em></h2>
 
-  <!-- Global Init -->
-  <script src="assets/js/custom.js"></script>
- </body>
+              <div class="main-button">
+                <a href="contact.html">Contact us</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ***** Footer Start ***** -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <p>Copyright © 2022 Dulaa Motors</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="https://unpkg.com/vue@3"></script>
+
+    <script>
+      const { createApp } = Vue
+
+      createApp({
+        data() {
+          return {
+            message: "Hello Vue!",
+            cars: [],
+            attributes: [],
+            images: [],
+          }
+        },
+        mounted() {
+          fetch("https://dulaacars.herokuapp.com/api/cars?populate=images")
+            .then((response) => response.json())
+            .then((data) => {
+              this.cars = data.data
+              this.images = this.cars.images
+              console.log(this.images)
+            })
+        },
+        computed: {
+          featuredCars() {
+            return this.cars.slice(0, 6)
+          },
+        },
+      }).mount("#app")
+    </script>
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imgfix.min.js"></script>
+    <script src="assets/js/mixitup.js"></script>
+    <script src="assets/js/accordions.js"></script>
+
+    <!-- Global Init -->
+    <script src="assets/js/custom.js"></script>
+  </body>
+
 </html>
