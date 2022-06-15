@@ -1390,3 +1390,23 @@ a:hover {
   right: -45vw;
  }
 }
+@media screen and (max-width: 400px) {
+ .carousel-item p {
+  font-size: 14px;
+  left: 4px;
+  top: 55%;
+ }
+ .carousel-item img {
+  height: 100px;
+  top: 30px;
+  left: 50%;
+ }
+ .Carousel {
+  border: 1px solid rgb(107, 1, 1);
+  height: 30vh;
+ }
+ .carousel-inner {
+  border: #1e1e1e solid 1px;
+  height: 22vh;
+ }
+}

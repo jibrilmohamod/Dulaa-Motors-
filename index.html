@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
           rel="stylesheet" />
 
+
     <title>Dulaa Motors</title>
 
     <link rel="stylesheet"
@@ -24,7 +25,6 @@
 
     <link rel="stylesheet"
           href="assets/css/style.css" />
-    <script src="https://unpkg.com/vue@3"></script>
   </head>
 
   <body id="app">
@@ -76,56 +76,109 @@
     </header>
     <!-- ***** Header Area End ***** -->
 
-    <!-- ***** Main Banner Area Start ***** -->
-    <div class="main-banner"
-         id="top">
-      <video autoplay
-             muted
-             loop
-             id="bg-video">
-        <source src="assets/images/video.mp4"
-                type="video/mp4" />
-      </video>
-
-      <div class="video-overlay header-text">
-        <div class="caption">
-
-          <h2>FIND YOUR<em>DREAM CAR</em> TODAy!</h2>
-          <div class="main-button">
-            <a href="contact.html">Contact Us</a>
+    <!-- ***** Call to Action Start ***** -->
+    <div class="Carousel">
+      <div class="juu">
+      </div>
+      <div id="carouselExampleControls"
+           class="carousel slide"
+           data-ride="carousel"
+           data-interval="4000">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <p>
+              A Car Dealer You can Trust
+            </p>
+            <img class="d-block image"
+                 src="/assets/images/car1.svg"
+                 alt="First slide">
+          </div>
+          <div class="carousel-item">
+            <p>
+              New & Used Cars for Sale
+            </p>
+            <img class="d-block  image"
+                 src="/assets/images/car2.svg"
+                 alt="Second slide">
+          </div>
+          <div class="carousel-item">
+            <p>
+              We Have all Types of Cars
+            </p>
+            <img class="d-block  image"
+                 src="assets/images/car4.svg"
+                 alt="Third slide">
           </div>
         </div>
+
       </div>
     </div>
-    <!-- ***** Main Banner Area End ***** -->
+    <!-- ***** Call to Action End ***** -->
 
-    <!-- ***** Cars Starts ***** -->
+    <!-- ***** Fleet Starts ***** -->
     <section class="section"
              id="trainers">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-6 offset-lg-3">
-            <div class="section-heading">
-              <h2>Featured <em>Cars</em></h2>
-              <div>
-                <img src="assets/images/line-dec.png"
-                     alt="" />
+        <br />
+        <br />
+        <div class="contact-form">
+          <form action="#"
+                id="contact"
+                @submit="search">
+
+            <div>
+              <div class="form-group">
+
+                <label>Manufacturer:</label>
+
+
+                <select v-model="manufa">
+                  <option>All</option>
+                  <option>Toyota</option>
+                  <option>Nissan</option>
+                  <option>Suzuki</option>
+                  <option>Mitsubishi</option>
+                  <option>Hyundai</option>
+
+                </select>
               </div>
             </div>
-          </div>
+            <div class="col-sm-4 offset-sm-4">
+              <div class="main-button text-center">
+                <button type="submit"
+                        class="btn btn-primary"
+                        @click='search'>
+                  <i class="fa fa-search"></i> Search
+                </button>
+              </div>
+            </div>
+            <br />
+            <br />
+          </form>
+
         </div>
+
         <div class="row">
+
           <div class="col-lg-4"
-               v-for="car in cars">
+               v-for="(car) in cars">
             <div class="trainer-item">
               <div class="image-thumb"
                    v-for="(image,index) in car.attributes.images.data">
-                <img :src="image.attributes.formats.small.url"
-                     alt=""
-                     class="imgcard" />
+                <div class="image-thumb"
+                     v-for="(image, index) in car.attributes.images.data"
+                     :key="index"
+                     :id="++rous ">
+                  <img :src="image.attributes.formats.small.url"
+                       alt=""
+                       class="imgcard" />
+
+                </div>
               </div>
               <div class="down-content">
-                <span> <sup>$</sup>{{car.attributes.price}} </span>
+                <span>
+                  <sup>$</sup>{{car.attributes.price}}
+                </span>
 
                 <h4>{{ `${car.attributes.manufacturer} ${car.attributes.make}` }}</h4>
 
@@ -134,21 +187,16 @@
                   <i class="fa fa-cube"></i>{{car.attributes.state}} &nbsp;&nbsp;&nbsp;
                   <i class="fa fa-cog"></i> {{car.attributes.gear}} &nbsp;&nbsp;&nbsp;
                 </p>
+
+
               </div>
             </div>
           </div>
+          {{images.id}}
         </div>
-
-        <br />
-
-        <div class="main-button text-center">
-          <a href="cars.html">View Cars</a>
-        </div>
-      </div>
     </section>
-    <!-- ***** Cars Ends ***** -->
 
-    <!-- ***** Call to Action Start ***** -->
+    <!-- ***** Fleet Ends ***** -->
     <section class="section section-bg"
              id="call-to-action"
              style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
@@ -167,6 +215,7 @@
       </div>
     </section>
 
+
     <!-- ***** Footer Start ***** -->
     <footer>
       <div class="container">
@@ -180,34 +229,99 @@
     <script src="https://unpkg.com/vue@3"></script>
 
     <script>
+
       const { createApp } = Vue
 
       createApp({
         data() {
           return {
-            message: "Hello Vue!",
             cars: [],
             attributes: [],
             images: [],
+            manufa: '',
+            state: '',
+            rous: 40,
+
           }
         },
         mounted() {
-          fetch("https://dulaacars.herokuapp.com/api/cars?populate=images")
-            .then((response) => response.json())
-            .then((data) => {
-              this.cars = data.data
-              this.images = this.cars.images
-              console.log(this.images)
-            })
+          this.getData(),
+            this.findImage()
         },
-        computed: {
-          featuredCars() {
-            return this.cars.slice(0, 6)
-          },
+        methods: {
+          getData() {
+            fetch("https://dulaacars.herokuapp.com/api/cars?fields=make,manufacturer,price,state,gear&populate=images")
+              .then((response) => response.json())
+              .then((data) => {
+                this.cars = data.data
+
+                this.cars.forEach(element => {
+                  this.images.push(element.attributes.images.data)
+
+                });
+              })
+          }
+          ,
+          //  findImage() {
+          //    this.cars.forEach(element => {
+          //       this.images.push(element.attributes.images.data.attributes.url)
+          //       console.log(this.images);
+          //     });       
+          //  },
+          search() {
+            if (this.manufa == 'Toyota') {
+              fetch('https://dulaacars.herokuapp.com/api/cars?populate=images&filters[manufacturer][$contains]=Toyota')
+                .then((response) => response.json())
+                .then((data) => {
+                  this.cars = data.data
+                })
+            }
+            else if (this.manufa == 'Nissan') {
+              fetch('https://dulaacars.herokuapp.com/api/cars?populate=images&filters[manufacturer][$contains]=Nissan')
+                .then((response) => response.json())
+                .then((data) => {
+                  this.cars = data.data
+                })
+            }
+            else if (this.manufa == 'Suzuki') {
+              fetch('https://dulaacars.herokuapp.com/api/cars?populate=images&filters[manufacturer][$contains]=Suzuki')
+                .then((response) => response.json())
+                .then((data) => {
+                  this.cars = data.data
+                })
+            }
+            else if (this.manufa == 'Mitsubishi') {
+              fetch('https://dulaacars.herokuapp.com/api/cars?populate=images&filters[manufacturer][$contains]=Mitsubishi')
+                .then((response) => response.json())
+                .then((data) => {
+                  this.cars = data.data
+                })
+            }
+            else if (this.manufa == 'Hyundai') {
+              fetch('https://dulaacars.herokuapp.com/api/cars?populate=images&filters[manufacturer][$contains]=Honda')
+                .then((response) => response.json())
+                .then((data) => {
+                  this.cars = data.data
+                })
+            }
+            else if (this.manufa == 'Honda') {
+              fetch('https://dulaacars.herokuapp.com/api/cars?populate=images&filters[manufacturer][$contains]=Hyundai')
+                .then((response) => response.json())
+                .then((data) => {
+                  this.cars = data.data
+                })
+            }
+            else if (this.manufa == 'All') {
+              fetch('https://dulaacars.herokuapp.com/api/cars?populate=images')
+                .then((response) => response.json())
+                .then((data) => {
+                  this.cars = data.data
+                })
+            }
+          }
         },
       }).mount("#app")
     </script>
-
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
 
