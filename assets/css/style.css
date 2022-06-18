@@ -1361,6 +1361,9 @@ a:hover {
  .carousel-inner {
   margin-top: 40px;
  }
+ .image {
+  height: 40vh;
+ }
 }
 .main-nav .nav li a:hover {
  color: #61524f;
